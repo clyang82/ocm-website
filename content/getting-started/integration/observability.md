@@ -45,7 +45,7 @@ kubectl create namespace open-cluster-management-observability
 
 Deploy `minio` as object storage:
 ```Shell
-kubectl apply -f example/minio
+kubectl -n open-cluster-management-observability apply -f example/minio
 ```
 
 Build multicluster-observability-operator image and push it to a public registry, such as:
@@ -63,8 +63,23 @@ make -f Makefile.prow deploy IMG=quay.io/<YOUR_USERNAME_IN_QUAY>/multicluster-ob
 Deploy the multicluster-observability-operator CR with the following commands:
 
 ```Shell
-kubectl apply -f config/samples/observability_v1beta2_multiclusterobservability.yaml
+cat << EOF | kubectl apply -f -
+apiVersion: observability.open-cluster-management.io/v1beta2
+kind: MultiClusterObservability
+metadata:
+  annotations:
+    mco-imageRepository: quay.io/open-cluster-management
+    mco-imageTagSuffix: 2.3.0-SNAPSHOT-2021-06-23-07-28-33
+  name: observability
+spec:
+  observabilityAddonSpec: {}
+  storageConfig:
+    metricObjectStorage:
+      name: thanos-object-storage
+      key: thanos.yaml
+EOF
 ```
+Note: you can get the latest SNAPSHOT tag from https://quay.io/repository/open-cluster-management/multicluster-observability-operator?tab=tags
 
 ## What is next
 
@@ -78,7 +93,7 @@ If there is `vendor=OpenShift` label exists in your managed cluster, you should 
 Expose the thanos query frontend by using route.
 
 ```Shell
-cat << EOF | kubectl apply -f -
+cat << EOF | kubectl -n open-cluster-management-observability apply -f -
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
