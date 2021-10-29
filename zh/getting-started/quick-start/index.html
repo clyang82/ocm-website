@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/svg" href="/ocm.svg">
+    <title>Open Cluster Management</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/contentpage.css"/>
+</head>
+<body>
+    <div class="wrapper">
+
+
+
+    
+
+
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <a class="navlink" href="/zh/">
+        <img src="/ocm.svg" alt="" width="50" height="70" class="d-inline-block align-text-top">
+        <h4>Open Cluster Management</h4>
+        </a>
+    </div>
+    <ul class="list-unstyled components">
+        <li id="concepts">
+            <a class="navlink" href="/zh/concepts">概念</a>
+            <ul class="collapse list-unstyled">
+                <li>
+                    <a class="navlink" href="/zh/concepts/architecture">架构</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/managedcluster">托管集群</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/manifestwork">资源下发</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/placement">匹配路由</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/concepts/addon">自定义插件</a>
+                </li>
+            </ul>
+        </li>
+        <li id="getting-started">
+            <a class="navlink" href="/zh/getting-started">安装</a>
+            <ul class="collapse list-unstyled">
+                <li>
+                    <a class="navlink" href="/zh/getting-started/quick-start">快速开始</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/getting-started/core">核心组件</a>
+                    <ul class="collapse list-unstyled">
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/core/cluster-manager">中枢控制器</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/core/register-cluster">集群代理控制器</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/getting-started/integration">插件和集成</a>
+                    <ul class="collapse list-unstyled">
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/integration/app-lifecycle">应用生命周期管理</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/integration/policy-framework">Policy框架</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/zh/getting-started/integration/policy-controllers">Policy控制器</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li id="scenarios">
+            <a class="navlink" href="/zh/scenarios">应用场景</a>
+            <ul class="collapse list-unstyled">
+                <li>
+                    <a class="navlink" href="/zh/scenarios/deploy-kubernetes-resources">部署Kubernetes资源</a>
+                </li>
+            </ul>
+        </li>
+        <li id="community">
+            <a class="navlink" href="/zh/community">社区</a>
+            <ul class="collapse list-unstyled">
+                <li>
+                    <a class="navlink" href="/zh/community/releases">发行版本</a>
+                </li>
+                <li >
+                    <a class="navlink" href="/zh/community/roadmap">社区规划</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/community/resource">社区资源</a>
+                </li>
+            </ul>
+        </li>
+        <li id="contribute">
+            <a class="navlink" href="/zh/contribute">贡献</a>
+        </li>
+        <li id="blog">
+            <a class="navlink" href="/zh/blog">博客</a>
+        </li>
+    </ul>
+    <ul class="list-unstyled sidebar-footer">&copy; 2021 Open Cluster Management Authors</ul>
+</nav>
+
+<div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1>快速开始</h1>
+    <p>使用以下任意方法准备 Open Cluster Management 环境。</p>
+<!-- spellchecker-disable -->
+
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
+        <li><a href="#通过clusteradm命令行工具进行部署">通过Clusteradm命令行工具进行部署</a>
+          <ul>
+            <li><a href="#安装clusteradm命令行工具">安装Clusteradm命令行工具</a></li>
+            <li><a href="#在hub集群部署组件cluster-manager">在Hub集群部署组件Cluster Manager</a></li>
+            <li><a href="#在托管集群上部署klusterlet代理控制器">在托管集群上部署Klusterlet代理控制器</a></li>
+            <li><a href="#接受注册请求并且校验">接受注册请求并且校验</a></li>
+          </ul>
+        </li>
+        <li><a href="#通过operatorhubio进行自动化部署">通过Operatorhub.io进行自动化部署</a></li>
+        <li><a href="#了解更多细节">了解更多细节</a></li>
+      </ul></nav><hr></div>
+
+
+<p>在开始安装组件到集群里之前, 首先需要准备一个至少有两个集群的多集群环境。 其中一个用来作为中枢（Hub）集群，另一个作为被托管（Managed）。</p>
+<p>同时为你的控制台命令行工具配置以下的环境变量，这会伴随你接下来的体验过程：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell"><span style="color:#75715e"># 中枢集群的名称</span>
+export HUB_CLUSTER_NAME<span style="color:#f92672">=</span>&lt;your hub cluster name&gt;             <span style="color:#75715e"># export HUB_CLUSTER_NAME=hub</span>
+<span style="color:#75715e"># 托管集群的名称</span>
+export MANAGED_CLUSTER_NAME<span style="color:#f92672">=</span>&lt;your managed cluster name&gt;     <span style="color:#75715e"># export MANAGED_CLUSTER_NAME=cluster1</span>
+<span style="color:#75715e"># 中枢集群在你的KubeConfig中的Context名称</span>
+export CTX_HUB_CLUSTER<span style="color:#f92672">=</span>&lt;your hub cluster context&gt;           <span style="color:#75715e"># export CTX_HUB_CLUSTER=kind-hub</span>
+<span style="color:#75715e"># 托管集群在你的KubeConfig中的Context名称</span>
+export CTX_MANAGED_CLUSTER<span style="color:#f92672">=</span>&lt;your managed cluster context&gt;   <span style="color:#75715e"># export CTX_MANAGED_CLUSTER=kind-cluster1</span>
+</code></pre></div><p>如果没有现成的多集群环境，我们可以通过<a href="https://kind.sigs.k8s.io">Kind</a>以下为创建两个新集群。执行以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell"><span style="color:#75715e"># 创建中枢集群</span>
+kind create cluster --name <span style="color:#e6db74">${</span>HUB_CLUSTER_NAME<span style="color:#e6db74">}</span>
+<span style="color:#75715e"># 创建托管集群</span>
+kind create cluster --name <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span>
+</code></pre></div><h2 id="通过clusteradm命令行工具进行部署">通过Clusteradm命令行工具进行部署</h2>
+<h3 id="安装clusteradm命令行工具">安装Clusteradm命令行工具</h3>
+<p>下载并且解压 <a href="https://github.com/open-cluster-management-io/clusteradm/releases/latest">Clusteradm命令行工具</a>. 更多使用细节可以参考<a href="https://github.com/open-cluster-management-io/clusteradm/blob/main/README.md#quick-start">Clusteradm GitHub页面</a>.</p>
+<h3 id="在hub集群部署组件cluster-manager">在Hub集群部署组件Cluster Manager</h3>
+<ol>
+<li>
+<p>启动Open Cluster Management的中枢控制面：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">clusteradm init --context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span>
+</code></pre></div><p>然后你可以使用<code>join</code>命令完成注册流程：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">...
+clusteradm join --hub-token &lt;token_data&gt; --hub-apiserver https://126.0.0.1:39242 --cluster-name &lt;managed_cluster_name&gt;
+</code></pre></div><p>接下来就只需要复制以上命令并且替换掉其中的<code>&lt;managed_cluster_name&gt;</code>为你的实际托管集群名称，例如<code>cluster1</code>。</p>
+</li>
+</ol>
+<h3 id="在托管集群上部署klusterlet代理控制器">在托管集群上部署Klusterlet代理控制器</h3>
+<ol>
+<li>
+<p>执行前面复制粘贴的<code>join</code>命令并指定上下文名称(Context)以使托管集群注册到中枢集群中:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">clusteradm join --context <span style="color:#e6db74">${</span>CTX_MANAGED_CLUSTER<span style="color:#e6db74">}</span> --hub-token &lt;token_data&gt; --hub-apiserver https://126.0.0.1:39242 --cluster-name <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span>
+</code></pre></div></li>
+</ol>
+<h3 id="接受注册请求并且校验">接受注册请求并且校验</h3>
+<ol>
+<li>
+<p>等待中枢集群上CSR请求对象被成功创建出来:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">kubectl get csr -w --context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span> | grep <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span>
+</code></pre></div><p>然后当CSR被创建时，你会看到类似以下的终端输出：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">cluster1-tqcjj   33s   kubernetes.io/kube-apiserver-client   system:serviceaccount:open-cluster-management:cluster-bootstrap   Pending
+</code></pre></div></li>
+<li>
+<p>接受集群注册请求:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">clusteradm accept --clusters <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span> --context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span>
+</code></pre></div></li>
+<li>
+<p>检查托管集群<code>managedcluster</code>是否被成功创建:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">kubectl get managedcluster --context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span>
+</code></pre></div><p>然后你会看到类似以下的终端输出：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">NAME       HUB ACCEPTED   MANAGED CLUSTER URLS      JOINED   AVAILABLE   AGE
+cluster1   true           https://127.0.0.1:41478   True     True        5m23s
+</code></pre></div></li>
+</ol>
+<h2 id="通过operatorhubio进行自动化部署">通过Operatorhub.io进行自动化部署</h2>
+<p>在中枢集群中创建一个<a href="https://operatorhub.io/operator/cluster-manager">Cluster manager</a>对象.</p>
+<p>在托管集群中场景一个<a href="https://operatorhub.io/operator/klusterlet">Klusterlet agent</a>对象。</p>
+<h2 id="了解更多细节">了解更多细节</h2>
+<p>通过<a href="/getting-started/core">核心组件介绍</a>来了解更多细节。</p>
+
+
+    <script type="text/javascript" src="/clipboard-copy.js"></script>
+</div> 
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        pathname = window.location.pathname
+        paths = pathname.replace(/^\/|\/$/g, '').split('/')
+        rootPath = $('#'+paths[0])
+        if (rootPath.length == 0) {
+            
+            paths.shift()
+            rootPath = $('#'+paths[0])
+        }
+
+        console.log('paths', paths, rootPath)
+
+        rootPath.find('a.navlink').each(function() {
+            href = $(this).attr('href')
+            if (pathname == (href + '/')) {
+                
+                $(this).css({'background':'#fff', 'color': '#7386D5'})
+
+                
+                $(this).parents('ul.collapse').each(function() {
+                    console.log('parent ul', $(this))
+                    $(this).addClass('show')
+                })
+
+                
+                $(this).siblings('ul.collapse').each(function() {
+                    console.log('sibling ul', $(this))
+                    $(this).addClass('show')
+                })
+
+                return
+            }
+        })
+
+
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+        $('#sidebarCollapse').on('click', function () {
+            console.log("2");
+            $('#content').toggleClass('active');
+            $('#sidebar').toggleClass('sidebar-active')
+        });
+    });
+</script>
+</body>
+</html>
