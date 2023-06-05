@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="en"><head>
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,14 @@
   <title>Open Cluster Management</title>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PXKZXT157"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1PXKZXT157');
+  </script>
 </head>
 <body>
     <div class="container-fluid">
@@ -21,56 +29,61 @@
 
 <input id="current-lang" type="hidden" value="en">
 
-<div class="container-fluid">
-  <nav class="ocm navbar navbar-expand-lg navbar-dark py-3 fixed-top ocm-header">
-    <a href="/" class="navbar-brand">
-      <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
-      Open Cluster Management
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navmenu">
-      <ul class="navbar-nav ms-auto ">
-        <li class="nav-item pe-2">
-          <a href="/community" class="nav-link text-light">Community</a>
-        </li>
-        <li class="nav-item pe-2">
-          <a href="/contribute" class="nav-link text-light">Contribute</a>
-        </li>
-        <li class="nav-item pe-2">
-          <a href="/concepts" class="nav-link text-light">Document</a>
-        </li>
-        <li class="nav-item dropdown pe-2">
-          
-          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">English</a>
-          
+<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+    <div class="container-fluid flex-wrap flex-md-nowrap">
+      <a href="/" class="navbar-brand">
+        <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
+        Open Cluster Management
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item pe-2">
+            <a href="/community" class="nav-link text-light">Community</a>
+          </li>
+          <li class="nav-item pe-2">
+            <a href="/contribute" class="nav-link text-light">Contribute</a>
+          </li>
+          <li class="nav-item pe-2">
+            <a href="/concepts" class="nav-link text-light">Document</a>
+          </li>
+          <li class="nav-item pe-2">
+            <a href="/blog" class="nav-link text-light">Blog</a>
+          </li>
+          <li class="nav-item dropdown pe-2">
+            
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">English</a>
+            
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            
-            <li><a class="dropdown-item" href="#" id="to-zh">中文</a></li>
-            
-          </ul>
-        </li>
-        <li class="nav-item pe-2">
-          <a class="nav-link text-light" href="https://www.youtube.com/channel/UC7xxOh2jBM5Jfwt3fsBzOZw" target="_blank">
-              <i class="bi bi-youtube"></i>
-          </a>
-        </li>
-        <li class="nav-item pe-2">
-          <a class="nav-link text-light" href="https://github.com/open-cluster-management-io" target="_blank">
-            <i class="bi bi-github"></i>
-          </a>
-        </li>
-        <li class="nav-item pe-2">
-          <a class="nav-link text-light" href="https://kubernetes.slack.com/?redir=%2Farchives%2FC01GE7YSUUF" target="_blank">
-            <i class="bi bi-slack"></i>
-          </a>
-        </li>
-      </ul>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+              <li><a class="dropdown-item" href="#" id="to-zh">中文</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://www.youtube.com/c/OpenClusterManagement" target="_blank" aria-label="youtube">
+                <i class="bi bi-youtube"></i>
+            </a>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://github.com/open-cluster-management-io" target="_blank" aria-label="github">
+              <i class="bi bi-github"></i>
+            </a>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://kubernetes.slack.com/channels/open-cluster-mgmt" target="_blank" aria-label="slack">
+              <i class="bi bi-slack"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-</div>
+</header>
 </div>
         <div class="row subject-padding">
             <div class="col-lg-2 col-md-3 padding-none sidebar-bgc">
@@ -92,16 +105,25 @@
                     <a class="navlink" href="/concepts/architecture">Architecture</a>
                 </li>
                 <li>
+                    <a class="navlink" href="/concepts/clusterclaim">ClusterClaim</a>
+                </li>
+                <li>
                     <a class="navlink" href="/concepts/managedcluster">ManagedCluster</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/manifestwork">ManifestWork</a>
                 </li>
                 <li>
+                    <a class="navlink" href="/concepts/managedclusterset">ManagedClusterSet</a>
+                </li>
+                <li>
                     <a class="navlink" href="/concepts/placement">Placement</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/addon">Add-ons</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/concepts/policy">Policy</a>
                 </li>
             </ul>
         </li>
@@ -112,13 +134,13 @@
                     <a class="navlink" href="/getting-started/quick-start">Quick Start</a>
                 </li>
                 <li>
-                    <a class="navlink" href="/getting-started/core">Core Components</a>
+                    <a class="navlink" href="/getting-started/installation">Installation</a>
                     <ul class="collapse">
                         <li>
-                            <a class="navlink" href="/getting-started/core/cluster-manager">Cluster Manager</a>
+                            <a class="navlink" href="/getting-started/installation/start-the-control-plane">Start the Control Plane</a>
                         </li>
                         <li>
-                            <a class="navlink" href="/getting-started/core/register-cluster">Klusterlet Agent</a>
+                            <a class="navlink" href="/getting-started/installation/register-a-cluster">Register a Cluster</a>
                         </li>
                     </ul>
                 </li>
@@ -129,12 +151,40 @@
                             <a class="navlink" href="/getting-started/integration/app-lifecycle">Application lifecycle management</a>
                         </li>
                         <li>
+                            <a class="navlink" href="/getting-started/integration/cluster-proxy">Cluster proxy</a>
+                        </li>
+                        <li>
                             <a class="navlink" href="/getting-started/integration/policy-framework">Policy framework</a>
                         </li>
                         <li>
                             <a class="navlink" href="/getting-started/integration/policy-controllers">Policy controllers</a>
                         </li>
+                        <li>
+                            <a class="navlink" href="/getting-started/integration/managed-serviceaccount">Managed service account</a>
+                        </li>
                     </ul>
+                </li>
+                <li>
+                    <a class="navlink" href="/getting-started/administration">Administration</a>
+                    <ul class="collapse">
+                        <li>
+                            <a class="navlink" href="/getting-started/administration/upgrading">Upgrading</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/getting-started/administration/monitoring">Monitoring</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li id="developer-guides">
+            <a class="navlink" href="/developer-guides">Developer Guides</a>
+            <ul class="collapse">
+                <li>
+                    <a class="navlink" href="/developer-guides/addon">Add-on Developer Guide</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/developer-guides/vscode-extension">VScode Extension</a>
                 </li>
             </ul>
         </li>
@@ -143,6 +193,21 @@
             <ul class="collapse">
                 <li>
                     <a class="navlink" href="/scenarios/deploy-kubernetes-resources">Deploy Kubernetes Resources</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/distribute-workload-with-placement">Distribute Workload With Placement</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/extend-multicluster-scheduling-capabilities">Extend Multicluster Scheduling Capabilities</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/extending-managed-clusters">Extend Managed Clusters</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/integration-with-argocd">Integration with Argo CD</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/pushing-kube-api-requests">Pushing Kube API Requests to the Managed Clusters</a>
                 </li>
             </ul>
         </li>
@@ -167,16 +232,16 @@
             <a class="navlink resource" href="https://github.com/open-cluster-management-io" target="_blank"><i class="bi bi-github"></i><span style="padding-left: 10px;">GitHub</span></a>
         </li>
         <li>
-            <a class="navlink resource" href="https://kubernetes.slack.com/archives/C01GE7YSUUF" target="_blank"><i class="bi bi-slack"></i><span style="padding-left: 10px;">Slack</span></a>
+            <a class="navlink resource" href="https://kubernetes.slack.com/channels/open-cluster-mgmt" target="_blank"><i class="bi bi-slack"></i><span style="padding-left: 10px;">Slack</span></a>
         </li>
         <li>
-            <a class="navlink resource" href="https://www.youtube.com/channel/UC7xxOh2jBM5Jfwt3fsBzOZw" target="_blank"><i class="bi bi-youtube"></i><span style="padding-left: 10px;">YouTube</span></a>
+            <a class="navlink resource" href="https://www.youtube.com/c/OpenClusterManagement" target="_blank"><i class="bi bi-youtube"></i><span style="padding-left: 10px;">YouTube</span></a>
         </li>
         <li>
             <a class="navlink resource" href="https://groups.google.com/g/open-cluster-management" target="_blank"><i class="bi bi-envelope-fill"></i><span style="padding-left: 10px;">Mailing group</span></a>
         </li>
         <li>
-            <a class="navlink resource" href="https://github.com/open-cluster-management-io/community/projects/1" target="_blank"><i class="bi bi-calendar-event-fill"></i><span style="padding-left: 10px;">Community meetings</span></a>
+            <a class="navlink resource" href="https://calendar.google.com/calendar/u/0/embed?src=openclustermanagement@gmail.com" target="_blank"><i class="bi bi-calendar-event-fill"></i><span style="padding-left: 10px;">Community meetings</span></a>
         </li>
     </ul>
 </nav>
@@ -185,88 +250,46 @@
             <div class="col-lg-10 col-md-9 padding-none">
 <div id="content">
     <h1>Quick Start</h1>
-    <p>Use any of the following methods to bootstrap your Open Cluster Management environment.</p>
-<!-- spellchecker-disable -->
+    <!-- spellchecker-disable -->
 
 
 
   <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
-        <li><a href="#bootstrap-via-clusteradm-cli-tool">Bootstrap via Clusteradm CLI tool</a>
-          <ul>
-            <li><a href="#install-clusteradm-cli-tool">Install Clusteradm CLI tool</a></li>
-            <li><a href="#deploy-a-cluster-manager-on-your-hub-cluster">Deploy a cluster manager on your hub cluster</a></li>
-            <li><a href="#deploy-a-klusterlet-agent-on-your-managed-cluster">Deploy a klusterlet agent on your managed cluster</a></li>
-            <li><a href="#accept-join-request-and-verify">Accept join request and verify</a></li>
-          </ul>
-        </li>
-        <li><a href="#bootstrap-via-operatorhubio">Bootstrap via Operatorhub.io</a></li>
-        <li><a href="#more-details">More details</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#setup-hub-and-managed-cluster">Setup hub and managed cluster</a></li>
+        <li><a href="#what-is-next">What is next</a></li>
       </ul></nav><hr></div>
 
 
-<p>Before installation, prepare a multicluster environment with at least two clusters. One used as hub cluster and another as managed cluster.</p>
-<p>Set the following environment variables that will be used throughout to simplify the instructions:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">export HUB_CLUSTER_NAME<span style="color:#f92672">=</span>&lt;your hub cluster name&gt;             <span style="color:#75715e"># export HUB_CLUSTER_NAME=hub</span>
-export MANAGED_CLUSTER_NAME<span style="color:#f92672">=</span>&lt;your managed cluster name&gt;     <span style="color:#75715e"># export MANAGED_CLUSTER_NAME=cluster1</span>
-export CTX_HUB_CLUSTER<span style="color:#f92672">=</span>&lt;your hub cluster context&gt;           <span style="color:#75715e"># export CTX_HUB_CLUSTER=kind-hub</span>
-export CTX_MANAGED_CLUSTER<span style="color:#f92672">=</span>&lt;your managed cluster context&gt;   <span style="color:#75715e"># export CTX_MANAGED_CLUSTER=kind-cluster1</span>
-</code></pre></div><p>Then create these two clusters using <a href="https://kind.sigs.k8s.io">kind</a>. Run the following commands:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">kind create cluster --name <span style="color:#e6db74">${</span>HUB_CLUSTER_NAME<span style="color:#e6db74">}</span>
-kind create cluster --name <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span>
-</code></pre></div><h2 id="bootstrap-via-clusteradm-cli-tool">Bootstrap via Clusteradm CLI tool</h2>
-<h3 id="install-clusteradm-cli-tool">Install Clusteradm CLI tool</h3>
-<p>Download and extract the <a href="https://github.com/open-cluster-management-io/clusteradm/releases/latest">clusteradm binary</a>. For more details see the <a href="https://github.com/open-cluster-management-io/clusteradm/blob/main/README.md#quick-start">clusteradm GitHub page</a>.</p>
-<h3 id="deploy-a-cluster-manager-on-your-hub-cluster">Deploy a cluster manager on your hub cluster</h3>
-<ol>
-<li>
-<p>Bootstrap the Open Cluster Management control plane:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">clusteradm init --context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span>
-</code></pre></div><p>Then you will get a result with a generated <code>join</code> command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">...
-clusteradm join --hub-token &lt;token_data&gt; --hub-apiserver https://126.0.0.1:39242 --cluster-name &lt;managed_cluster_name&gt;
-</code></pre></div><p>Copy the generated command and replace the <code>&lt;managed_cluster_name&gt;</code> to your managed cluster name. E.g. <code>cluster1</code>.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Ensure <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl">kubectl</a> and <a href="https://kubectl.docs.kubernetes.io/installation/kustomize/">kustomize</a> are installed.</li>
+<li>Ensure <a href="https://kind.sigs.k8s.io/">kind</a>(greater than <code>v0.9.0+</code>, or the latest version is preferred) is installed.</li>
+</ul>
+<h2 id="setup-hub-and-managed-cluster">Setup hub and managed cluster</h2>
+<p>Run the following command to quickly setup a hub cluster and 2 managed clusters by kind.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -L https://raw.githubusercontent.com/open-cluster-management-io/OCM/main/solutions/setup-dev-environment/local-up.sh | bash
+</code></pre></div><p>If you want to setup OCM in a production environment or on a different kubernetes distribution, please refer to the <a href="/getting-started/installation/start-the-control-plane">Start the control plane</a> and <a href="/getting-started/installation/register-a-cluster">Register a cluster</a> guides.</p>
+<h2 id="what-is-next">What is next</h2>
+<p>Now you have the OCM control plane with 2 managed clusters connected! Let&rsquo;s start your OCM journey.</p>
+<ul>
+<li><a href="/scenarios/deploy-kubernetes-resources">Deploy kubernetes resources onto a managed cluster</a></li>
+<li><a href="/scenarios/pushing-kube-api-requests">Visit kubernetes apiserver of managedcluster from cluster-proxy</a></li>
+<li>Visit <a href="/getting-started/integration">integration</a> to check if any certain OCM addon will meet your use cases.
+<ul>
+<li><a href="/getting-started/integration/policy-framework">Deploy Policies onto a managed cluster</a></li>
+</ul>
 </li>
-</ol>
-<h3 id="deploy-a-klusterlet-agent-on-your-managed-cluster">Deploy a klusterlet agent on your managed cluster</h3>
-<ol>
-<li>
-<p>Run the previously copied <code>join</code> command by appending the context of your managed cluster to join the hub cluster:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">clusteradm join --context <span style="color:#e6db74">${</span>CTX_MANAGED_CLUSTER<span style="color:#e6db74">}</span> --hub-token &lt;token_data&gt; --hub-apiserver https://126.0.0.1:39242 --cluster-name <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span>
-</code></pre></div></li>
-</ol>
-<h3 id="accept-join-request-and-verify">Accept join request and verify</h3>
-<ol>
-<li>
-<p>Wait for the CSR is created on your hub cluster:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">kubectl get csr -w --context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span> | grep <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span>
-</code></pre></div><p>Then you will get a result resembling the following after the CSR is created:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">cluster1-tqcjj   33s   kubernetes.io/kube-apiserver-client   system:serviceaccount:open-cluster-management:cluster-bootstrap   Pending
-</code></pre></div></li>
-<li>
-<p>Accept request:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">clusteradm accept --clusters <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span> --context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span>
-</code></pre></div></li>
-<li>
-<p>Verify <code>managedcluster</code> has been created successfully:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">kubectl get managedcluster --context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span>
-</code></pre></div><p>Then you will get a result resembling the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Shell" data-lang="Shell">NAME       HUB ACCEPTED   MANAGED CLUSTER URLS      JOINED   AVAILABLE   AGE
-cluster1   true           https://127.0.0.1:41478   True     True        5m23s
-</code></pre></div></li>
-</ol>
-<h2 id="bootstrap-via-operatorhubio">Bootstrap via Operatorhub.io</h2>
-<p>Install and create a <a href="https://operatorhub.io/operator/cluster-manager">Cluster manager</a> on your <em>hub</em> cluster.</p>
-<p>Install and create a <a href="https://operatorhub.io/operator/klusterlet">Klusterlet agent</a> on your <em>managed</em> cluster.</p>
-<h2 id="more-details">More details</h2>
-<p>For more details, see <a href="/getting-started/core">Core components</a>.</p>
+<li><a href="/developer-guides/vscode-extension">Use the OCM VScode Extension to easily generate OCM related Kubernetes resources and track your cluster</a></li>
+</ul>
 
 </div>
 <script type="text/javascript" src="/clipboard-copy.js"></script>
 </div>
         </div>
         <div class="row"><nav class="ocm navbar navbar-expand-lg navbar-dark py-3">
-  <div class="container-fluid">
-    <div class="text-light">&copy; 2021 Open Cluster Management Authors</div>
+  <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="text-light">&copy; 2023 Open Cluster Management Authors. The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see <a href="https://www.linuxfoundation.org/trademark-usage/" target="_blank" style="color: #f8f9fa;">Trademark Usage</a></div>
   </div>
 </nav>
 <script type="text/javascript" src="/lang.js"></script>

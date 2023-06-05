@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="en"><head>
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,14 @@
   <title>Open Cluster Management</title>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PXKZXT157"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1PXKZXT157');
+  </script>
 </head>
 <body>
     <div class="container-fluid">
@@ -21,56 +29,61 @@
 
 <input id="current-lang" type="hidden" value="en">
 
-<div class="container-fluid">
-  <nav class="ocm navbar navbar-expand-lg navbar-dark py-3 fixed-top ocm-header">
-    <a href="/" class="navbar-brand">
-      <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
-      Open Cluster Management
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navmenu">
-      <ul class="navbar-nav ms-auto ">
-        <li class="nav-item pe-2">
-          <a href="/community" class="nav-link text-light">Community</a>
-        </li>
-        <li class="nav-item pe-2">
-          <a href="/contribute" class="nav-link text-light">Contribute</a>
-        </li>
-        <li class="nav-item pe-2">
-          <a href="/concepts" class="nav-link text-light">Document</a>
-        </li>
-        <li class="nav-item dropdown pe-2">
-          
-          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">English</a>
-          
+<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+    <div class="container-fluid flex-wrap flex-md-nowrap">
+      <a href="/" class="navbar-brand">
+        <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
+        Open Cluster Management
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item pe-2">
+            <a href="/community" class="nav-link text-light">Community</a>
+          </li>
+          <li class="nav-item pe-2">
+            <a href="/contribute" class="nav-link text-light">Contribute</a>
+          </li>
+          <li class="nav-item pe-2">
+            <a href="/concepts" class="nav-link text-light">Document</a>
+          </li>
+          <li class="nav-item pe-2">
+            <a href="/blog" class="nav-link text-light">Blog</a>
+          </li>
+          <li class="nav-item dropdown pe-2">
+            
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">English</a>
+            
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            
-            <li><a class="dropdown-item" href="#" id="to-zh">中文</a></li>
-            
-          </ul>
-        </li>
-        <li class="nav-item pe-2">
-          <a class="nav-link text-light" href="https://www.youtube.com/channel/UC7xxOh2jBM5Jfwt3fsBzOZw" target="_blank">
-              <i class="bi bi-youtube"></i>
-          </a>
-        </li>
-        <li class="nav-item pe-2">
-          <a class="nav-link text-light" href="https://github.com/open-cluster-management-io" target="_blank">
-            <i class="bi bi-github"></i>
-          </a>
-        </li>
-        <li class="nav-item pe-2">
-          <a class="nav-link text-light" href="https://kubernetes.slack.com/?redir=%2Farchives%2FC01GE7YSUUF" target="_blank">
-            <i class="bi bi-slack"></i>
-          </a>
-        </li>
-      </ul>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+              <li><a class="dropdown-item" href="#" id="to-zh">中文</a></li>
+              
+            </ul>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://www.youtube.com/c/OpenClusterManagement" target="_blank" aria-label="youtube">
+                <i class="bi bi-youtube"></i>
+            </a>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://github.com/open-cluster-management-io" target="_blank" aria-label="github">
+              <i class="bi bi-github"></i>
+            </a>
+          </li>
+          <li class="nav-item pe-2">
+            <a class="nav-link text-light" href="https://kubernetes.slack.com/channels/open-cluster-mgmt" target="_blank" aria-label="slack">
+              <i class="bi bi-slack"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-</div>
+</header>
 </div>
         <div class="row subject-padding">
             <div class="col-2 col-md-3 padding-none sidebar-bgc">
@@ -92,16 +105,25 @@
                     <a class="navlink" href="/concepts/architecture">Architecture</a>
                 </li>
                 <li>
+                    <a class="navlink" href="/concepts/clusterclaim">ClusterClaim</a>
+                </li>
+                <li>
                     <a class="navlink" href="/concepts/managedcluster">ManagedCluster</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/manifestwork">ManifestWork</a>
                 </li>
                 <li>
+                    <a class="navlink" href="/concepts/managedclusterset">ManagedClusterSet</a>
+                </li>
+                <li>
                     <a class="navlink" href="/concepts/placement">Placement</a>
                 </li>
                 <li>
                     <a class="navlink" href="/concepts/addon">Add-ons</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/concepts/policy">Policy</a>
                 </li>
             </ul>
         </li>
@@ -112,13 +134,13 @@
                     <a class="navlink" href="/getting-started/quick-start">Quick Start</a>
                 </li>
                 <li>
-                    <a class="navlink" href="/getting-started/core">Core Components</a>
+                    <a class="navlink" href="/getting-started/installation">Installation</a>
                     <ul class="collapse">
                         <li>
-                            <a class="navlink" href="/getting-started/core/cluster-manager">Cluster Manager</a>
+                            <a class="navlink" href="/getting-started/installation/start-the-control-plane">Start the Control Plane</a>
                         </li>
                         <li>
-                            <a class="navlink" href="/getting-started/core/register-cluster">Klusterlet Agent</a>
+                            <a class="navlink" href="/getting-started/installation/register-a-cluster">Register a Cluster</a>
                         </li>
                     </ul>
                 </li>
@@ -129,12 +151,40 @@
                             <a class="navlink" href="/getting-started/integration/app-lifecycle">Application lifecycle management</a>
                         </li>
                         <li>
+                            <a class="navlink" href="/getting-started/integration/cluster-proxy">Cluster proxy</a>
+                        </li>
+                        <li>
                             <a class="navlink" href="/getting-started/integration/policy-framework">Policy framework</a>
                         </li>
                         <li>
                             <a class="navlink" href="/getting-started/integration/policy-controllers">Policy controllers</a>
                         </li>
+                        <li>
+                            <a class="navlink" href="/getting-started/integration/managed-serviceaccount">Managed service account</a>
+                        </li>
                     </ul>
+                </li>
+                <li>
+                    <a class="navlink" href="/getting-started/administration">Administration</a>
+                    <ul class="collapse">
+                        <li>
+                            <a class="navlink" href="/getting-started/administration/upgrading">Upgrading</a>
+                        </li>
+                        <li>
+                            <a class="navlink" href="/getting-started/administration/monitoring">Monitoring</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li id="developer-guides">
+            <a class="navlink" href="/developer-guides">Developer Guides</a>
+            <ul class="collapse">
+                <li>
+                    <a class="navlink" href="/developer-guides/addon">Add-on Developer Guide</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/developer-guides/vscode-extension">VScode Extension</a>
                 </li>
             </ul>
         </li>
@@ -143,6 +193,21 @@
             <ul class="collapse">
                 <li>
                     <a class="navlink" href="/scenarios/deploy-kubernetes-resources">Deploy Kubernetes Resources</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/distribute-workload-with-placement">Distribute Workload With Placement</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/extend-multicluster-scheduling-capabilities">Extend Multicluster Scheduling Capabilities</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/extending-managed-clusters">Extend Managed Clusters</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/integration-with-argocd">Integration with Argo CD</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/scenarios/pushing-kube-api-requests">Pushing Kube API Requests to the Managed Clusters</a>
                 </li>
             </ul>
         </li>
@@ -167,16 +232,16 @@
             <a class="navlink resource" href="https://github.com/open-cluster-management-io" target="_blank"><i class="bi bi-github"></i><span style="padding-left: 10px;">GitHub</span></a>
         </li>
         <li>
-            <a class="navlink resource" href="https://kubernetes.slack.com/archives/C01GE7YSUUF" target="_blank"><i class="bi bi-slack"></i><span style="padding-left: 10px;">Slack</span></a>
+            <a class="navlink resource" href="https://kubernetes.slack.com/channels/open-cluster-mgmt" target="_blank"><i class="bi bi-slack"></i><span style="padding-left: 10px;">Slack</span></a>
         </li>
         <li>
-            <a class="navlink resource" href="https://www.youtube.com/channel/UC7xxOh2jBM5Jfwt3fsBzOZw" target="_blank"><i class="bi bi-youtube"></i><span style="padding-left: 10px;">YouTube</span></a>
+            <a class="navlink resource" href="https://www.youtube.com/c/OpenClusterManagement" target="_blank"><i class="bi bi-youtube"></i><span style="padding-left: 10px;">YouTube</span></a>
         </li>
         <li>
             <a class="navlink resource" href="https://groups.google.com/g/open-cluster-management" target="_blank"><i class="bi bi-envelope-fill"></i><span style="padding-left: 10px;">Mailing group</span></a>
         </li>
         <li>
-            <a class="navlink resource" href="https://github.com/open-cluster-management-io/community/projects/1" target="_blank"><i class="bi bi-calendar-event-fill"></i><span style="padding-left: 10px;">Community meetings</span></a>
+            <a class="navlink resource" href="https://calendar.google.com/calendar/u/0/embed?src=openclustermanagement@gmail.com" target="_blank"><i class="bi bi-calendar-event-fill"></i><span style="padding-left: 10px;">Community meetings</span></a>
         </li>
     </ul>
 </nav>
@@ -185,68 +250,267 @@
             <div class="col-10 col-md-9 padding-none">
 <div id="content">
     <h1>ManagedCluster</h1>
-    <h2 id="managedcluster-registration">ManagedCluster Registration</h2>
-<p><code>ManagedCluster</code> is a cluster scoped API on the hub cluster to define a Kubernetes cluster registered with the hub cluster. In open-cluster-management, the cluster registration follows a <code>double opt-in</code> mechanism which is:</p>
+    <!-- spellchecker-disable -->
+
+
+
+  <div class="gdoc-toc gdoc-toc__level--6"><nav id="TableOfContents"><ul>
+        <li><a href="#what-is-managedcluster">What is ManagedCluster?</a>
+          <ul>
+            <li><a href="#cluster-registration-and-acceptance">Cluster registration and acceptance</a>
+              <ul>
+                <li><a href="#bootstrapping-registration">Bootstrapping registration</a></li>
+                <li><a href="#approving-registration">Approving registration</a></li>
+              </ul>
+            </li>
+            <li><a href="#cluster-heartbeats-and-status">Cluster heartbeats and status</a></li>
+            <li><a href="#cluster-taints-and-tolerations">Cluster taints and tolerations</a>
+              <ul>
+                <li><a href="#taints-of-managedclusters">Taints of ManagedClusters</a></li>
+                <li><a href="#tolerations-of-placements">Tolerations of Placements</a></li>
+              </ul>
+            </li>
+            <li><a href="#cluster-removal">Cluster removal</a>
+              <ul>
+                <li><a href="#unregister-from-hub-cluster">Unregister from hub cluster</a></li>
+                <li><a href="#unregister-from-the-managed-cluster">Unregister from the managed cluster</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#managed-clusters-certificate-rotation">Managed Cluster&rsquo;s certificate rotation</a></li>
+        <li><a href="#whats-next">What&rsquo;s next?</a></li>
+      </ul></nav><hr></div>
+
+
+<!-- spellchecker-enable -->
+<h2 id="what-is-managedcluster">What is ManagedCluster?</h2>
+<p><code>ManagedCluster</code> is a cluster scoped API in the hub cluster representing the
+registered or pending-for-acceptance Kubernetes clusters in OCM. The
+<a href="https://open-cluster-management.io/getting-started/installation/register-a-cluster/">klusterlet agent</a>
+working in the managed cluster is expected to actively maintain/refresh the
+status of the corresponding <code>ManagedCluster</code> resource on the hub cluster.
+On the other hand, removing the <code>ManagedCluster</code> from the hub cluster indicates
+the cluster is denied/exiled from the hub cluster. The following is the
+introduction of how the cluster registration lifecycle works under the hood:</p>
+<h3 id="cluster-registration-and-acceptance">Cluster registration and acceptance</h3>
+<h4 id="bootstrapping-registration">Bootstrapping registration</h4>
+<p>Firstly, the cluster registration process should be initiated by the
+registration agent which requires a bootstrap kubeconfig e.g.:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Secret
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: bootstrap-hub-kubeconfig
+  <span style="color:#66d9ef">namespace</span>: open-cluster-management-agent
+<span style="color:#66d9ef">type</span>: Opaque
+<span style="color:#66d9ef">data</span>:
+  <span style="color:#66d9ef">kubeconfig</span>: &lt;base64-encoded kubeconfig&gt;
+</code></pre></div><p>A minimal RBAC permission required for the subject in the bootstrap kubeconfig
+will be:</p>
+<ul>
+<li><code>CertificateSigningRequest</code>'s &ldquo;get&rdquo;, &ldquo;list&rdquo;, &ldquo;watch&rdquo;, &ldquo;create&rdquo;, &ldquo;update&rdquo;.</li>
+<li><code>ManagedCluster</code>'s &ldquo;get&rdquo;, &ldquo;list&rdquo;, &ldquo;create&rdquo;, &ldquo;update&rdquo;</li>
+</ul>
+<p>Note that ideally the bootstrap kubeconfig is supposed to live shortly
+(hour-ish) after signed by the hub cluster so that it won&rsquo;t be abused by
+unwelcome clients.</p>
+<p>Last but not least, you can always live an easier life by leveraging OCM&rsquo;s
+command-line tool <code>clusteradm</code> to manage the whole registration process.</p>
+<h4 id="approving-registration">Approving registration</h4>
+<p>When we&rsquo;re registering a new cluster into OCM, the registration agent will be
+starting by creating an unaccepted <code>ManagedCluster</code> into the hub cluster along
+with a temporary <a href="https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/">CertificateSigningRequest (CSR)</a>
+resource. The cluster will be accepted by the hub control plane, if the
+following requirements is meet:</p>
+<ul>
+<li>The CSR is approved and signed by any certificate provider setting filling
+<code>.status.certificate</code> with legit X.509 certificates.</li>
+<li>The <code>ManagedCluster</code> resource is approved by setting <code>.spec.hubAcceptsClient</code>
+to true in the spec.</li>
+</ul>
+<p>Note that the cluster approval process above can be done by one-line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ clusteradm accept --clusters &lt;cluster name&gt;
+</code></pre></div><p>Upon the approval, the registration agent will observe the signed certificate
+and persist them as a local secret named &ldquo;hub-kubeconfig-secret&rdquo; (by default
+in the &ldquo;open-cluster-management-agent&rdquo; namespace) which will be mounted to the
+other fundamental components of klusterlet such as the <a href="https://open-cluster-management.io/concepts/manifestwork/">work</a>
+agent. In a word, if you can find your &ldquo;hub-kubeconfig-secret&rdquo; successfully
+present in your managed cluster, the cluster registration is all set!</p>
+<p>Overall the registration process in OCM is called <code>double opt-in</code> mechanism,
+which means that a successful cluster registration requires both sides of
+approval and commitment from the hub cluster and the managed cluster. This
+will be especially useful when the hub cluster and managed clusters are
+operated by different admins or teams. In OCM, we assume the clusters are
+mutually untrusted in the beginning then set up the connection between them
+gracefully with permission and validity under control.</p>
+<p>Note that the functionality mentioned above are all managed by OCM&rsquo;s
+<a href="https://github.com/open-cluster-management-io/ocm/tree/main/cmd/registration">registration</a>
+sub-project, which is the &ldquo;root dependency&rdquo; in the OCM world. It includes
+an agent in the managed cluster to register to the hub and a controller in
+the hub cluster to coordinate with the agent.</p>
+<h3 id="cluster-heartbeats-and-status">Cluster heartbeats and status</h3>
+<p>By default, the registration will be reporting and refreshing its healthiness
+state to the hub cluster on a one-minute basis, and that interval can be easily
+overridden by setting <code>.spec.leaseDurationSeconds</code> on the <code>ManagedCluster</code>.</p>
+<p>In addition to that, a few commonly-used information will also be reflected
+in the status of the <code>ManagedCluster</code>, e.g.:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">  <span style="color:#66d9ef">status</span>:
+    <span style="color:#66d9ef">version</span>:
+      <span style="color:#66d9ef">kubernetes</span>: v1<span style="color:#ae81ff">.20.11</span>
+    <span style="color:#66d9ef">allocatable</span>:
+      <span style="color:#66d9ef">cpu</span>: 11700m
+      <span style="color:#66d9ef">ephemeral-storage</span>: <span style="color:#e6db74">&#34;342068531454&#34;</span>
+      <span style="color:#66d9ef">hugepages-1Gi</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+      <span style="color:#66d9ef">hugepages-2Mi</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+      <span style="color:#66d9ef">memory</span>: 17474228Ki
+      <span style="color:#66d9ef">pods</span>: <span style="color:#e6db74">&#34;192&#34;</span>
+    <span style="color:#66d9ef">capacity</span>:
+      <span style="color:#66d9ef">cpu</span>: <span style="color:#e6db74">&#34;12&#34;</span>
+      <span style="color:#66d9ef">ephemeral-storage</span>: 371168112Ki
+      <span style="color:#66d9ef">hugepages-1Gi</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+      <span style="color:#66d9ef">hugepages-2Mi</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+      <span style="color:#66d9ef">memory</span>: 23777972Ki
+      <span style="color:#66d9ef">pods</span>: <span style="color:#e6db74">&#34;192&#34;</span>
+    <span style="color:#66d9ef">conditions</span>: ...
+</code></pre></div><h3 id="cluster-taints-and-tolerations">Cluster taints and tolerations</h3>
+<p>To support filtering unhealthy/not-reporting clusters and keep workloads from
+being placed in unhealthy or unreachable clusters, we introduce the similar
+concept of taint/toleration in Kubernetes. It also allows user to add a
+customized taint to deselect a cluster from placement. This is useful when the
+user wants to set a cluster to maintenance mode and evict workload from this
+cluster.</p>
+<p>In OCM, Taints and Tolerations work together to allow users to control the
+selection of managed clusters more flexibly.</p>
+<h4 id="taints-of-managedclusters">Taints of ManagedClusters</h4>
+<p>Taints are properties of ManagedClusters, they allow a Placement to repel a set
+of ManagedClusters. A Taint includes the following fields:</p>
+<ul>
+<li><strong>Key</strong> (required). The taint key applied to a cluster. e.g. bar or
+foo.example.com/bar.</li>
+<li><strong>Value</strong> (optional). The taint value corresponding to the taint key.</li>
+<li><strong>Effect</strong> (required). The Effect of the taint on Placements that do not
+tolerate the taint. Valid effects are
+<ul>
+<li><code>NoSelect</code>. It means Placements are not allowed to select a cluster unless
+they tolerate this taint. The cluster will be removed from the placement
+decision if it has already been selected by the Placement.</li>
+<li><code>PreferNoSelect</code>. It means the scheduler tries not to select the cluster,
+rather than prohibiting Placements from selecting the cluster entirely.
+(This is not implemented yet, currently clusters with effect <code>PreferNoSelect</code>
+will always be selected.)</li>
+<li><code>NoSelectIfNew</code>. It means Placements are not allowed to select the cluster
+unless: 1) they tolerate the taint; 2) they have already had the cluster in
+their cluster decisions;</li>
+</ul>
+</li>
+<li><strong>TimeAdded</strong> (required). The time at which the taint was added. It is set
+automatically and the user should not to set/update its value.</li>
+</ul>
+<p><strong>Builtin taints to reflect the status of ManagedClusters</strong></p>
+<p>There are two builtin taints, which will be automatically added to
+ManagedClusters, according to their conditions.</p>
+<ul>
+<li><code>cluster.open-cluster-management.io/unavailable</code>. The taint is added to a
+ManagedCluster when it is not available. To be specific, the cluster has a
+condition &lsquo;ManagedClusterConditionAvailable&rsquo; with status of &lsquo;False&rsquo;. The taint
+has the effect <code>NoSelect</code> and an empty value. Example,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1
+<span style="color:#66d9ef">kind</span>: ManagedCluster
+<span style="color:#66d9ef">metadata</span>:
+ <span style="color:#66d9ef">name</span>: cluster1
+<span style="color:#66d9ef">spec</span>:
+ <span style="color:#66d9ef">hubAcceptsClient</span>: <span style="color:#66d9ef">true</span>
+ <span style="color:#66d9ef">taints</span>:
+   - <span style="color:#66d9ef">effect</span>: NoSelect
+     <span style="color:#66d9ef">key</span>: cluster.open-cluster-management.io/unavailable
+     <span style="color:#66d9ef">timeAdded</span>: <span style="color:#e6db74">&#39;2022-02-21T08:11:54Z&#39;</span>
+</code></pre></div></li>
+<li><code>cluster.open-cluster-management.io/unreachable</code>. The taint is added to a
+ManagedCluster when it is not reachable. To be specific,
+<ul>
+<li>
 <ol>
-<li>An agent opts in to register a cluster with the hub by creating a <code>ManagedCluster</code> resource on the hub. The agent needs a kubeconfig with appropriate permission (bootstrap kubeconfig) to initiate the registration request</li>
-<li>An admin user on the hub opts in to explicitly accept the registration of the <code>ManagedCluster</code>.</li>
+<li>The cluster has no condition &lsquo;ManagedClusterConditionAvailable&rsquo;;</li>
 </ol>
-<p>This process ensures that any agent with a credential to the hub can request to join as a <code>ManagedCluster</code>, while the request must be approved by an admin on the hub.</p>
-<p>An example of <code>ManagedCluster</code> resource is shown in the following example.</p>
+</li>
+<li>
+<ol start="2">
+<li>Or the status of condition &lsquo;ManagedClusterConditionAvailable&rsquo; is
+&lsquo;Unknown&rsquo;;
+The taint has the effect <code>NoSelect</code> and an empty value. Example,</li>
+</ol>
+</li>
+</ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1
 <span style="color:#66d9ef">kind</span>: ManagedCluster
 <span style="color:#66d9ef">metadata</span>:
   <span style="color:#66d9ef">name</span>: cluster1
 <span style="color:#66d9ef">spec</span>:
   <span style="color:#66d9ef">hubAcceptsClient</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">managedClusterClientConfigs</span>:
-    - <span style="color:#66d9ef">url</span>: https://managedcluster-apiserver:<span style="color:#ae81ff">6443</span>
-</code></pre></div><p>The admin user on the hub needs to approve the authn/authz of an agent separately by:</p>
-<ol>
-<li>Approving the <code>certificatesigningrequest</code> initiated by the agent so agent is authenticated to the hub.</li>
-<li>Set <code>hubAccpetClient</code> to true in <code>ManagedCluster</code> API, so the agent is authorized to call the hub.</li>
-</ol>
-<p>The admin user must have a <code>create</code> permission to <code>managedcluster/accept</code> resource to set <code>hubAccpetClient</code> to true in <code>ManagedCluster</code>.</p>
-<p>After the admin user on the hub approve the registration of the cluster, a namespace with the same name of the cluster will be created. This namespace can be regarded as a <code>container</code> of the resources that agents in a managed cluster can access. By default, the agent on a cluster is only authorized to access certain resource kinds in this namespace on the hub to ensure security isolation. In addition, the agent will set a status condition in <code>ManagedCluster</code> as <code>Joined</code> and starts to update the liveness of managed cluster.</p>
-<p>In open-cluster-management, <a href="https://github.com/open-cluster-management-io/registration">registration</a> project implements the registration process. It includes an agent in the managed cluster to register to the hub, a controller on the hub cluster to handle authz/authn setup for the agent.</p>
-<h2 id="managedclusterset">ManagedClusterSet</h2>
-<p><code>ManagedClusterSet</code> is a cluster scoped API on the hub cluster to define a group of <code>ManagedCluster</code>. How <code>ManagedCluster</code> is grouped depends on different use cases. For instance, you can create <code>dev</code>, <code>staging</code>, <code>prod</code> <code>ManagedClusterSet</code> for different purposes. Or you can create <code>north-america</code>, <code>europe</code>, <code>apac</code> <code>ManagedClusterSet</code> based on the region of the <code>ManagedCluster</code>.</p>
-<p><code>ManagedCluster</code> is to implement the notion in <a href="https://github.com/kubernetes/enhancements/tree/master/keps/sig-multicluster/1645-multi-cluster-services-api">KEP-1645</a>, but we also expand its definition as a scope for workload placement.</p>
-<p>To add a <code>ManagedCluster</code> to a <code>ManagedClusterSet</code>, user needs to set a label <code>cluster.open-cluster-management.io/clusterset={clusterset name}</code> on the <code>ManagedCluster</code>. The user must have the <code>create</code> permission to <code>managedclusterset/join</code> resource to add a <code>ManagedCluster</code> to a <code>ManagedClusterSet</code>.</p>
-<p>An example of a <code>ManagedClusterSet</code> resource is shown in the following example.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1alpha1
-<span style="color:#66d9ef">kind</span>: ManagedClusterSet
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: prod
-</code></pre></div><h2 id="clusterclaim">ClusterClaim</h2>
-<p><code>ClusterClaim</code> is a cluster scoped API on the managed cluster as an implementation of <a href="https://github.com/kubernetes/enhancements/tree/master/keps/sig-multicluster/2149-clusterid">KEP-2149</a>. It provides an extension point for other actors in the managed cluster to report certain properties of a managed cluster to the hub. The <code>registration-agent</code> collects all the <code>ClusterClaim</code> in the managed cluster and syncs them in <code>clusterClaims</code> field in the related <code>ManagedCluster</code>.</p>
-<p>A third party actor can create a cluster claim on the managed cluster as shown below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1alpha1
-<span style="color:#66d9ef">kind</span>: ClusterClaim
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: platform.open-cluster-management.io
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">value</span>: aws
-</code></pre></div><p>And the <code>ClusterClaim</code> will be synced to the hub cluster:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: cluster.open-cluster-management.io/v1
-<span style="color:#66d9ef">kind</span>: ManagedCluster
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: aws
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">hubAcceptsClient</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">status</span>:
-  <span style="color:#66d9ef">clusterClaims</span>:
-    - <span style="color:#66d9ef">name</span>: platform.open-cluster-management.io
-      <span style="color:#66d9ef">value</span>: aws
-  <span style="color:#66d9ef">conditions</span>: ...
-</code></pre></div>
+  <span style="color:#66d9ef">taints</span>:
+    - <span style="color:#66d9ef">effect</span>: NoSelect
+      <span style="color:#66d9ef">key</span>: cluster.open-cluster-management.io/unreachable
+      <span style="color:#66d9ef">timeAdded</span>: <span style="color:#e6db74">&#39;2022-02-21T08:11:06Z&#39;</span>
+</code></pre></div></li>
+</ul>
+<h4 id="tolerations-of-placements">Tolerations of Placements</h4>
+<p>Tolerations are applied to Placements, and allow Placements to select
+ManagedClusters with matching taints. Refer to <a href="../placement/#taintstolerations">Placement
+Taints/Tolerations</a> to see how it is used for
+cluster selection.</p>
+<h3 id="cluster-removal">Cluster removal</h3>
+<p>A previously registered cluster can opt-out cutting off the connection from
+either hub cluster or managed cluster. This is helpful for tackling emergency
+problems in your OCM environment, e.g.:</p>
+<ul>
+<li>When the hub cluster is overloaded, under emergency</li>
+<li>When the managed cluster is intended to detach from OCM</li>
+<li>When the hub cluster is found sending wrong orders to the managed cluster</li>
+<li>When the managed cluster is spamming requests to the hub cluster</li>
+</ul>
+<h4 id="unregister-from-hub-cluster">Unregister from hub cluster</h4>
+<p>A recommended way to unregister a managed cluster will flip the
+<code>.spec.hubAcceptsClient</code> bit back to <code>false</code>, which will be triggering the hub
+control plane to offload the managed cluster from effective management.
+Meanwhile, a permanent way to kick a managed cluster from the hub control plane
+is simply deleting its <code>ManagedCluster</code> resource.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ kubectl delete managedcluster &lt;cluster name&gt;
+</code></pre></div><p>This is also revoking the previously-granted RBAC permission for the managed
+cluster instantly in the background. If we hope to defer the rejection to
+the next time when the klusterlet agent is renewing its certificate, as a
+minimal operation we can remove the following RBAC rules from the cluster&rsquo;s
+effective cluster role resource:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># ClusterRole: open-cluster-management:managedcluster:&lt;cluster name&gt;</span>
+<span style="color:#75715e"># Removing the following RBAC rule to stop the certificate rotation.</span>
+- <span style="color:#66d9ef">apiGroups</span>:
+    - register.open-cluster-management.io
+  <span style="color:#66d9ef">resources</span>:
+    - managedclusters/clientcertificates
+  <span style="color:#66d9ef">verbs</span>:
+    - renew
+</code></pre></div><h4 id="unregister-from-the-managed-cluster">Unregister from the managed cluster</h4>
+<p>The admin of the managed cluster can disable the prescriptions from hub cluster
+by scaling the OCM klusterlet agents to <code>0</code>. Or just permanently deleting the
+agent components from the managed cluster.</p>
+<h2 id="managed-clusters-certificate-rotation">Managed Cluster&rsquo;s certificate rotation</h2>
+<p>The certificates used by the agents from the managed cluster to talk to
+the hub control plane will be periodically rotated with an ephemeral and random
+identity. The following picture shows the automated certificate rotation works.</p>
+<div style="text-align: center; padding: 20px;">
+   <img src="/registration-process.png" alt="Registration Process" style="margin: 0 auto; width: 80%">
+</div>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<p>Furthermore, we can do advanced cluster matching/selecting within a
+<a href="./managedclusterset.md">managedclusterset</a> using the <a href="./placement.md">placement</a>
+module.</p>
+
 </div>
 <script type="text/javascript" src="/clipboard-copy.js"></script>
 </div>
         </div>
         <div class="row"><nav class="ocm navbar navbar-expand-lg navbar-dark py-3">
-  <div class="container-fluid">
-    <div class="text-light">&copy; 2021 Open Cluster Management Authors</div>
+  <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="text-light">&copy; 2023 Open Cluster Management Authors. The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see <a href="https://www.linuxfoundation.org/trademark-usage/" target="_blank" style="color: #f8f9fa;">Trademark Usage</a></div>
   </div>
 </nav>
 <script type="text/javascript" src="/lang.js"></script>

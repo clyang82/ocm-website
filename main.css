@@ -17,13 +17,29 @@ a {
 }
 
 /* main page */
-.ocm{
+
+.ocm, header nav {
   background-color: #0e0f45!important;
+  color: #f8f9fa !important;
 }
 
-.ocm-header {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+header > nav > div.container-fluid,
+nav > div.container-fluid {
+  padding: 0 0.5em;
+}
+
+.ocm .bd-masthead{
+  padding-top: 3em;
+  margin-bottom: 0px !important;
+  background-image: url("/OCM-Header-Background.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: 48%;
+}
+
+.ocm .bd-masthead .col-md-8{
+  padding-top: 4em;
+  padding-bottom: 2em;
 }
 
 .ocm-btn {
@@ -62,12 +78,41 @@ a {
   margin-bottom: 1rem;
 }
 
+.full-height {
+  height: 100%;
+}
+
 .section-padding {
   padding: 2rem;
 }
 
+.feature-section {
+  padding: 2rem;
+  background-color: white;
+}
+
+.addons-section {
+  padding: 2rem;
+}
+
+.supports-section {
+  padding: 2rem;
+  background-color: white;
+}
+
+.cncf-section {
+  padding-top: 2rem;
+}
+.cncf-section a {
+  color: #f8f9fa;
+}
+
+.border-none {
+  border: 0;
+}
+
 .subject-padding {
-  padding-top: 4.5rem;
+  padding-top: 2rem;
 }
 
 .subject-content-padding {
@@ -76,8 +121,23 @@ a {
 }
 
 .subject-img {
-  width: 50%;
-  margin-right: -10px;
+  background-image: url("/OCM-Header-Astro-sm.png");
+  background-position: bottom;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.subject-ocm {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #f8f9fa!important;
+}
+
+.subject-github {
+  margin-top: 1rem;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: #f8f9fa!important;
 }
 
 .feature-h1 {
@@ -89,23 +149,45 @@ a {
   color:#1DCECE;
 }
 
+.supports-grid {
+  display: grid;
+  grid-gap: 1.6rem;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.supports-logo {
+  display: grid;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  place-items: center;
+  max-width: 320px;
+  width: 100%;
+}
+
+.tencent-logo {
+  padding: 2rem;
+}
+
+.cncf-logo {
+  background: url(https://raw.githubusercontent.com/cncf/artwork/master/other/cncf/horizontal/white/cncf-white.svg) 50% no-repeat;
+  height: 75px;
+}
+
 /* content page */
 #content {
   padding: 40px;
-  min-height: 89vh;
+  min-height: 90vh;
   transition: all 0.3s;
 }
 
 #content ul {
   font-weight: 400;
   line-height: 2em;
-  font-size: 1.15em;
 }
 
 #content ul ul {
   font-weight: 400;
   line-height: 1.5em;
-  font-size: 1em;
 }
 
 #content pre {
@@ -165,7 +247,7 @@ a {
 }
 
 #sidebar ul.components {
-  padding: 2.75rem 0;
+  padding: 2.5rem 0;
 }
 
 #sidebar ul {
@@ -214,13 +296,44 @@ a {
   display: none;
 }
 
+@media (min-width: 1400px) {
+  .home > header > nav > div.container-fluid,
+  .home > nav > div.container-fluid {
+    max-width: 1320px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .ocm .bd-masthead{
+    background-size: contain;
+  }
+
+  .subject-img {
+    background-size: contain;
+  }
+
+  .tencent-logo {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  .subject-img {
+    display:none!important;
+  }
+}
+
 @media (max-width: 768px) {
-  .subject-img-none {
+  .subject-img {
     display:none!important;
   }
 
   .subject-content-padding-md {
     padding: 1.5rem 0;
+  }
+
+  .ocm .bd-masthead{
+    background: none;
   }
 }
 
@@ -236,5 +349,10 @@ a {
 
   .sidebar-hide-sm {
     display: none;
+  }
+
+  .supports-grid {
+    padding: 0;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
