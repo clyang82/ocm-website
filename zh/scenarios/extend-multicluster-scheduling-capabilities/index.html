@@ -31,12 +31,12 @@
 
 <input id="current-lang" type="hidden" value="zh">
 
-<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+<header class="navbar navbar-expand-lg navbar-dark bd-navbar">
   <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
-    <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="container-fluid flex-wrap flex-lg-nowrap">
       <a href="/zh/" class="navbar-brand">
         <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
-        Open Cluster Management
+        <span>Open Cluster Management</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span>
@@ -88,7 +88,7 @@
 </header>
 </div>
         <div class="row subject-padding">
-            <div class="col-2 col-md-3 padding-none sidebar-bgc">
+            <div class="col-lg-2 col-md-3 padding-none sidebar-bgc">
 
 
 
@@ -104,7 +104,7 @@
     <ul class="components">
         <li id="concepts">
             <a class="navlink" href="/zh/concepts">概念</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/zh/concepts/architecture">架构</a>
                 </li>
@@ -133,7 +133,7 @@
         </li>
         <li id="getting-started">
             <a class="navlink" href="/zh/getting-started">安装</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/zh/getting-started/quick-start">快速开始</a>
                 </li>
@@ -150,7 +150,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/zh/getting-started/integration">插件和集成</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/zh/getting-started/integration/app-lifecycle">应用生命周期管理</a>
                         </li>
@@ -170,7 +170,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/zh/getting-started/administration">运维管理</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/zh/getting-started/administration/upgrading">升级版本</a>
                         </li>
@@ -183,7 +183,7 @@
         </li>
         <li id="developer-guides">
             <a class="navlink" href="/zh/developer-guides">开发指南</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/zh/developer-guides/addon">Add-on 开发指南</a>
                 </li>
@@ -194,7 +194,7 @@
         </li>
         <li id="scenarios">
             <a class="navlink" href="/zh/scenarios">应用场景</a>
-            <ul class="collapse">
+            <ul class="collapse show">
                 <li>
                     <a class="navlink" href="/zh/scenarios/deploy-kubernetes-resources">部署Kubernetes资源</a>
                 </li>
@@ -217,7 +217,7 @@
         </li>
         <li id="community">
             <a class="navlink" href="/zh/community">社区</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/zh/community/releases">发行版本</a>
                 </li>
@@ -251,7 +251,7 @@
 </nav>
 <script type="text/javascript" src="/sidebar.js"></script>
 </div>
-            <div class="col-10 col-md-9 padding-none">
+            <div class="col-lg-10 col-md-9 padding-none">
 <div id="content">
     <h1>Extend the multicluster scheduling capabilities with placement</h1>
     <p>The <code>Placement</code> API is used to dynamically select a set of <code>ManagedCluster</code> in one or multiple <code>ManagedClusterSets</code> so that the workloads can be deployed to these clusters. You can use placement to filter clusters by label or claim selector, also placement provides some default prioritizers which can be used to sort and select the most suitable clusters.</p>
@@ -306,7 +306,7 @@ spec:
 </ul>
 <p>You can refer to the <a href="https://github.com/open-cluster-management-io/enhancements/blob/main/enhancements/sig-architecture/32-extensiblescheduling/32-extensiblescheduling.md">enhancements</a> to learn more details about the design. In the design, how to maintain the lifecycle (create/update/delete) of the <code>AddOnPlacementScore</code> CRs is not covered, as we expect the customized score provider itself to manage it. In this article, we will use an example to show you how to implement a 3rd part controller to update your own scores and extend the multiple clusters scheduling capability with your own scores.</p>
 <h2 id="how-to-implement-a-customized-score-provider">How to implement a customized score provider</h2>
-<p>The example code is in GitHub repo <a href="https://github.com/open-cluster-management-io/addon-contrib/tree/main/resource-usage-collect-addon">resource-usage-collect-addon</a>. It provides the score of the cluster&rsquo;s available CPU and available memory, which can reflect the cluster’s real-time resource utilization. It is developed with OCM <a href="https://github.com/open-cluster-management-io/addon-framework">addon-framework</a> and can be installed as an addon plugin to update customized scores into <code>AddOnPlacementScore</code>. (This article won&rsquo;t talk many details about addon-framework, referring to <a href="https://open-cluster-management.io/developer-guides/addon/">Add-on Developer Guide</a> to learn how to develop an addon.)</p>
+<p>The example code is in GitHub repo <a href="https://github.com/open-cluster-management-io/addon-contrib/tree/main/resource-usage-collect-addon">resource-usage-collect-addon</a>. It provides the score of the cluster&rsquo;s available CPU and available memory, which can reflect the cluster’s real-time resource utilization. It is developed with OCM <a href="https://github.com/open-cluster-management-io/addon-framework">addon-framework</a> and can be installed as an addon plugin to update customized scores into <code>AddOnPlacementScore</code>. (This article won&rsquo;t talk many details about addon-framework, referring to <a href="https://open-cluster-management.io/zh/developer-guides/addon/">Add-on Developer Guide</a> to learn how to develop an addon.)</p>
 <p>The resource-usage-collect addon follows the hub-agent architecture as below.</p>
 <div style="text-align: center; padding: 20px;">
    <img src="/extend-multicluster-scheduling-capabilities.png" alt="Security model" style="margin: 0 auto; width: 60%">

@@ -31,12 +31,12 @@
 
 <input id="current-lang" type="hidden" value="zh">
 
-<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+<header class="navbar navbar-expand-lg navbar-dark bd-navbar">
   <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
-    <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="container-fluid flex-wrap flex-lg-nowrap">
       <a href="/zh/" class="navbar-brand">
         <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
-        Open Cluster Management
+        <span>Open Cluster Management</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span>
@@ -88,7 +88,7 @@
 </header>
 </div>
         <div class="row subject-padding">
-            <div class="col-2 col-md-3 padding-none sidebar-bgc">
+            <div class="col-lg-2 col-md-3 padding-none sidebar-bgc">
 
 
 
@@ -104,7 +104,7 @@
     <ul class="components">
         <li id="concepts">
             <a class="navlink" href="/zh/concepts">概念</a>
-            <ul class="collapse">
+            <ul class="collapse show">
                 <li>
                     <a class="navlink" href="/zh/concepts/architecture">架构</a>
                 </li>
@@ -133,7 +133,7 @@
         </li>
         <li id="getting-started">
             <a class="navlink" href="/zh/getting-started">安装</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/zh/getting-started/quick-start">快速开始</a>
                 </li>
@@ -150,7 +150,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/zh/getting-started/integration">插件和集成</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/zh/getting-started/integration/app-lifecycle">应用生命周期管理</a>
                         </li>
@@ -170,7 +170,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/zh/getting-started/administration">运维管理</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/zh/getting-started/administration/upgrading">升级版本</a>
                         </li>
@@ -183,7 +183,7 @@
         </li>
         <li id="developer-guides">
             <a class="navlink" href="/zh/developer-guides">开发指南</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/zh/developer-guides/addon">Add-on 开发指南</a>
                 </li>
@@ -194,7 +194,7 @@
         </li>
         <li id="scenarios">
             <a class="navlink" href="/zh/scenarios">应用场景</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/zh/scenarios/deploy-kubernetes-resources">部署Kubernetes资源</a>
                 </li>
@@ -217,7 +217,7 @@
         </li>
         <li id="community">
             <a class="navlink" href="/zh/community">社区</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/zh/community/releases">发行版本</a>
                 </li>
@@ -251,7 +251,7 @@
 </nav>
 <script type="text/javascript" src="/sidebar.js"></script>
 </div>
-            <div class="col-10 col-md-9 padding-none">
+            <div class="col-lg-10 col-md-9 padding-none">
 <div id="content">
     <h1>匹配路由</h1>
     <!-- spellchecker-disable -->
@@ -281,6 +281,7 @@
           <ul>
             <li><a href="#check-the-placement-conditions">Check the <code>Placement</code> conditions</a></li>
             <li><a href="#check-the-placement-events">Check the <code>Placement</code> events</a></li>
+            <li><a href="#debug">Debug</a></li>
           </ul>
         </li>
         <li><a href="#future-work">Future work</a></li>
@@ -354,7 +355,7 @@ examples:</p>
               <span style="color:#66d9ef">values</span>:
                 - aws
 </code></pre></div><p>Note that the distinction between label-selecting and claim-selecting is
-elaborated in <a href="https://open-cluster-management.io/scenarios/extending-managed-clusters/">this page</a>
+elaborated in <a href="https://open-cluster-management.io/zh/scenarios/extending-managed-clusters/">this page</a>
 about how to extend attributes for the managed clusters.</p>
 <h4 id="taintstolerations">Taints/Tolerations</h4>
 <p>To support filtering unhealthy/not-reporting clusters and keep workloads from
@@ -603,7 +604,7 @@ placement yaml to select clusters.</li>
 cluster, to maintain the lifecycle of <code>AddOnPlacementScore</code> and update score
 into it.</li>
 </ul>
-<p><a href="https://open-cluster-management.io/scenarios/extend-multicluster-scheduling-capabilities/">Extend the multi-cluster scheduling capabilities with placement</a>
+<p><a href="https://open-cluster-management.io/zh/scenarios/extend-multicluster-scheduling-capabilities/">Extend the multi-cluster scheduling capabilities with placement</a>
 introduces how to implement a customized score provider.</p>
 <p>Refer to the
 <a href="https://github.com/open-cluster-management-io/enhancements/blob/main/enhancements/sig-architecture/32-extensiblescheduling/32-extensiblescheduling.md">enhancements</a>
@@ -686,7 +687,19 @@ Events:
   Normal  ScoreUpdate     3s      placementController  cluster1:200 cluster2:145 cluster3:189 cluster4:200
 </code></pre></div><p>The placement controller will give a score to each filtered <code>ManagedCluster</code> and generate an event for it. When the cluster score
 changes, a new event will generate. You can check the score of each cluster in the <code>Placment</code> events, to know why some clusters with lower score are not selected.</p>
-<h2 id="future-work">Future work</h2>
+<h3 id="debug">Debug</h3>
+<p>If you want to know more defails of how clusters are selected in each step, can following below step to access the debug endpoint.</p>
+<p>Create clusterrole &ldquo;debugger&rdquo; to access debug path and bind this to anonymous user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create clusterrole <span style="color:#e6db74">&#34;debugger&#34;</span> --verb<span style="color:#f92672">=</span>get --non-resource-url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/debug/*&#34;</span>
+kubectl create clusterrolebinding debugger --clusterrole<span style="color:#f92672">=</span>debugger --user<span style="color:#f92672">=</span>system:anonymous
+</code></pre></div><p>Export placement 8443 port to local.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl port-forward -n open-cluster-management-hub deploy/cluster-manager-placement-controller 8443:8443
+</code></pre></div><p>Curl below url to debug one specific placement.</p>
+<pre><code>curl -k  https://127.0.0.1:8443/debug/placements/&lt;namespace&gt;/&lt;name&gt;
+</code></pre><p>For example, the environment has a <code>Placement</code> named placement1 in default namespace, which selects 2 <code>ManagedClusters</code>, the output would be like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -k  https://127.0.0.1:8443/debug/placements/default/placement1
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;filteredPiplieResults&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Predicate&#34;</span>,<span style="color:#e6db74">&#34;filteredClusters&#34;</span>:<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;cluster1&#34;</span>,<span style="color:#e6db74">&#34;cluster2&#34;</span><span style="color:#f92672">]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Predicate,TaintToleration&#34;</span>,<span style="color:#e6db74">&#34;filteredClusters&#34;</span>:<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;cluster1&#34;</span>,<span style="color:#e6db74">&#34;cluster2&#34;</span><span style="color:#f92672">]}]</span>,<span style="color:#e6db74">&#34;prioritizeResults&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Balance&#34;</span>,<span style="color:#e6db74">&#34;weight&#34;</span>:1,<span style="color:#e6db74">&#34;scores&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;cluster1&#34;</span>:100,<span style="color:#e6db74">&#34;cluster2&#34;</span>:100<span style="color:#f92672">}}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Steady&#34;</span>,<span style="color:#e6db74">&#34;weight&#34;</span>:1,<span style="color:#e6db74">&#34;scores&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;cluster1&#34;</span>:100,<span style="color:#e6db74">&#34;cluster2&#34;</span>:100<span style="color:#f92672">}}]}</span>
+</code></pre></div><h2 id="future-work">Future work</h2>
 <p>In addition to selecting cluster by predicates, we are still working on other
 advanced features including</p>
 <ul>

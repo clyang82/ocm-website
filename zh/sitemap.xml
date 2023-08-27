@@ -10,10 +10,6 @@
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/getting-started/installation/start-the-control-plane</loc>
-    </url>
-    
-    <url>
         <loc>https://open-cluster-management.io/zh/scenarios/deploy-kubernetes-resources</loc>
     </url>
     
@@ -31,6 +27,10 @@
     
     <url>
         <loc>https://open-cluster-management.io/zh/scenarios/integration-with-argocd</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/getting-started/installation/start-the-control-plane</loc>
     </url>
     
     <url>
@@ -138,11 +138,19 @@
     </url>
     
     <url>
+        <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-controllers</loc>
+    </url>
+    
+    <url>
         <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-framework</loc>
     </url>
     
     <url>
-        <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-controllers</loc>
+        <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-controllers/configuration-policy</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/getting-started/integration/policy-controllers/gatekeeper</loc>
     </url>
     
     <url>
@@ -151,6 +159,10 @@
     
     <url>
         <loc>https://open-cluster-management.io/zh/blog/extend-multicluster-scheduling-capabilities</loc>
+    </url>
+    
+    <url>
+        <loc>https://open-cluster-management.io/zh/blog/addon-introduction</loc>
     </url>
     
     <url>
@@ -220,5 +232,8 @@
     </url>
     <url>
         <loc>http://open-cluster-management.io/multicluster-controlplane?go-get=1</loc>
+    </url>
+    <url>
+        <loc>http://open-cluster-management.io/ocm?go-get=1</loc>
     </url>
 </urlset>

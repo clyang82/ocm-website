@@ -29,12 +29,12 @@
 
 <input id="current-lang" type="hidden" value="en">
 
-<header class="navbar navbar-expand-md navbar-dark bd-navbar">
+<header class="navbar navbar-expand-lg navbar-dark bd-navbar">
   <nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
-    <div class="container-fluid flex-wrap flex-md-nowrap">
+    <div class="container-fluid flex-wrap flex-lg-nowrap">
       <a href="/" class="navbar-brand">
         <img src="/ocm.svg" alt="" width="30" height="24" class="align-text-top">
-        Open Cluster Management
+        <span>Open Cluster Management</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span>
@@ -86,7 +86,7 @@
 </header>
 </div>
         <div class="row subject-padding">
-            <div class="col-2 col-md-3 padding-none sidebar-bgc">
+            <div class="col-lg-2 col-md-3 padding-none sidebar-bgc">
 
 
 
@@ -100,7 +100,7 @@
     <ul class="components">
         <li id="concepts">
             <a class="navlink" href="/concepts">Concepts</a>
-            <ul class="collapse">
+            <ul class="collapse show">
                 <li>
                     <a class="navlink" href="/concepts/architecture">Architecture</a>
                 </li>
@@ -129,7 +129,7 @@
         </li>
         <li id="getting-started">
             <a class="navlink" href="/getting-started">Getting Started</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/getting-started/quick-start">Quick Start</a>
                 </li>
@@ -146,7 +146,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/getting-started/integration">Add-ons and Integrations</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/getting-started/integration/app-lifecycle">Application lifecycle management</a>
                         </li>
@@ -166,7 +166,7 @@
                 </li>
                 <li>
                     <a class="navlink" href="/getting-started/administration">Administration</a>
-                    <ul class="collapse">
+                    <ul class="collapse ">
                         <li>
                             <a class="navlink" href="/getting-started/administration/upgrading">Upgrading</a>
                         </li>
@@ -179,7 +179,7 @@
         </li>
         <li id="developer-guides">
             <a class="navlink" href="/developer-guides">Developer Guides</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/developer-guides/addon">Add-on Developer Guide</a>
                 </li>
@@ -190,7 +190,7 @@
         </li>
         <li id="scenarios">
             <a class="navlink" href="/scenarios">Scenarios</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/scenarios/deploy-kubernetes-resources">Deploy Kubernetes Resources</a>
                 </li>
@@ -213,7 +213,7 @@
         </li>
         <li id="community">
             <a class="navlink" href="/community">Community</a>
-            <ul class="collapse">
+            <ul class="collapse ">
                 <li>
                     <a class="navlink" href="/community/releases">Releases</a>
                 </li>
@@ -247,7 +247,7 @@
 </nav>
 <script type="text/javascript" src="/sidebar.js"></script>
 </div>
-            <div class="col-10 col-md-9 padding-none">
+            <div class="col-lg-10 col-md-9 padding-none">
 <div id="content">
     <h1>Placement</h1>
     <!-- spellchecker-disable -->
@@ -277,6 +277,7 @@
           <ul>
             <li><a href="#check-the-placement-conditions">Check the <code>Placement</code> conditions</a></li>
             <li><a href="#check-the-placement-events">Check the <code>Placement</code> events</a></li>
+            <li><a href="#debug">Debug</a></li>
           </ul>
         </li>
         <li><a href="#future-work">Future work</a></li>
@@ -682,7 +683,19 @@ Events:
   Normal  ScoreUpdate     3s      placementController  cluster1:200 cluster2:145 cluster3:189 cluster4:200
 </code></pre></div><p>The placement controller will give a score to each filtered <code>ManagedCluster</code> and generate an event for it. When the cluster score
 changes, a new event will generate. You can check the score of each cluster in the <code>Placment</code> events, to know why some clusters with lower score are not selected.</p>
-<h2 id="future-work">Future work</h2>
+<h3 id="debug">Debug</h3>
+<p>If you want to know more defails of how clusters are selected in each step, can following below step to access the debug endpoint.</p>
+<p>Create clusterrole &ldquo;debugger&rdquo; to access debug path and bind this to anonymous user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create clusterrole <span style="color:#e6db74">&#34;debugger&#34;</span> --verb<span style="color:#f92672">=</span>get --non-resource-url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/debug/*&#34;</span>
+kubectl create clusterrolebinding debugger --clusterrole<span style="color:#f92672">=</span>debugger --user<span style="color:#f92672">=</span>system:anonymous
+</code></pre></div><p>Export placement 8443 port to local.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl port-forward -n open-cluster-management-hub deploy/cluster-manager-placement-controller 8443:8443
+</code></pre></div><p>Curl below url to debug one specific placement.</p>
+<pre><code>curl -k  https://127.0.0.1:8443/debug/placements/&lt;namespace&gt;/&lt;name&gt;
+</code></pre><p>For example, the environment has a <code>Placement</code> named placement1 in default namespace, which selects 2 <code>ManagedClusters</code>, the output would be like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -k  https://127.0.0.1:8443/debug/placements/default/placement1
+<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;filteredPiplieResults&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Predicate&#34;</span>,<span style="color:#e6db74">&#34;filteredClusters&#34;</span>:<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;cluster1&#34;</span>,<span style="color:#e6db74">&#34;cluster2&#34;</span><span style="color:#f92672">]}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Predicate,TaintToleration&#34;</span>,<span style="color:#e6db74">&#34;filteredClusters&#34;</span>:<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;cluster1&#34;</span>,<span style="color:#e6db74">&#34;cluster2&#34;</span><span style="color:#f92672">]}]</span>,<span style="color:#e6db74">&#34;prioritizeResults&#34;</span>:<span style="color:#f92672">[{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Balance&#34;</span>,<span style="color:#e6db74">&#34;weight&#34;</span>:1,<span style="color:#e6db74">&#34;scores&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;cluster1&#34;</span>:100,<span style="color:#e6db74">&#34;cluster2&#34;</span>:100<span style="color:#f92672">}}</span>,<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Steady&#34;</span>,<span style="color:#e6db74">&#34;weight&#34;</span>:1,<span style="color:#e6db74">&#34;scores&#34;</span>:<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;cluster1&#34;</span>:100,<span style="color:#e6db74">&#34;cluster2&#34;</span>:100<span style="color:#f92672">}}]}</span>
+</code></pre></div><h2 id="future-work">Future work</h2>
 <p>In addition to selecting cluster by predicates, we are still working on other
 advanced features including</p>
 <ul>
