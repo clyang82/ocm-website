@@ -207,6 +207,9 @@
                     <a class="navlink" href="/scenarios/integration-with-argocd">Integration with Argo CD</a>
                 </li>
                 <li>
+                    <a class="navlink" href="/scenarios/manage-cluster-with-multiple-hubs">Manage a cluster with multiple hubs</a>
+                </li>
+                <li>
                     <a class="navlink" href="/scenarios/pushing-kube-api-requests">Pushing Kube API Requests to the Managed Clusters</a>
                 </li>
             </ul>
@@ -326,7 +329,7 @@ kubectl create ns <span style="color:#e6db74">${</span>MANAGED_NAMESPACE<span st
 
 <span style="color:#75715e"># Apply the CRD</span>
 export COMPONENT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;config-policy-controller&#34;</span>
-export GIT_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/open-cluster-management-io/</span><span style="color:#e6db74">${</span>COMPONENT<span style="color:#e6db74">}</span><span style="color:#e6db74">/v0.11.0/deploy&#34;</span>
+export GIT_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/open-cluster-management-io/</span><span style="color:#e6db74">${</span>COMPONENT<span style="color:#e6db74">}</span><span style="color:#e6db74">/v0.12.0/deploy&#34;</span>
 kubectl apply -f <span style="color:#e6db74">${</span>GIT_PATH<span style="color:#e6db74">}</span>/crds/policy.open-cluster-management.io_configurationpolicies.yaml
 
 <span style="color:#75715e"># Set the managed cluster name</span>
@@ -362,7 +365,7 @@ API</strong> section based on which placement API you desire to use.</p>
 kubectl config use-context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span>
 
 <span style="color:#75715e"># Apply the example policy and placement</span>
-kubectl apply -n default -f https://raw.githubusercontent.com/stolostron/policy-collection/main/community/CM-Configuration-Management/policy-pod-placement.yaml
+kubectl apply -n default -f https://raw.githubusercontent.com/open-cluster-management-io/policy-collection/main/community/CM-Configuration-Management/policy-pod-placement.yaml
 </code></pre></div></li>
 <li>
 <p>Update the <code>Placement</code> to distribute the policy to the managed cluster with the following command (this
@@ -395,7 +398,7 @@ status:
 kubectl config use-context <span style="color:#e6db74">${</span>CTX_HUB_CLUSTER<span style="color:#e6db74">}</span>
 
 <span style="color:#75715e"># Apply the example policy and placement rule</span>
-kubectl apply -n default -f https://raw.githubusercontent.com/open-cluster-management/policy-collection/main/stable/CM-Configuration-Management/policy-pod.yaml
+kubectl apply -n default -f https://raw.githubusercontent.com/open-cluster-management-io/policy-collection/main/stable/CM-Configuration-Management/policy-pod.yaml
 </code></pre></div></li>
 <li>
 <p>Update the <code>PlacementRule</code> to distribute the policy to the managed cluster with the following command (this

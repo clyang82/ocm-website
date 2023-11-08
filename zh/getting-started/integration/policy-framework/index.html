@@ -175,7 +175,7 @@
                             <a class="navlink" href="/zh/getting-started/administration/upgrading">升级版本</a>
                         </li>
                         <li>
-                            <a class="navlink" href="/zh/getting-started/administration/monitoring">Monitoring</a>
+                            <a class="navlink" href="/zh/getting-started/administration/monitoring">监控</a>
                         </li>
                     </ul>
                 </li>
@@ -188,7 +188,7 @@
                     <a class="navlink" href="/zh/developer-guides/addon">Add-on 开发指南</a>
                 </li>
                 <li>
-                    <a class="navlink" href="/zh/developer-guides/vscode-extension">VScode Extension</a>
+                    <a class="navlink" href="/zh/developer-guides/vscode-extension">VScode插件</a>
                 </li>
             </ul>
         </li>
@@ -209,6 +209,9 @@
                 </li>
                 <li>
                     <a class="navlink" href="/zh/scenarios/integration-with-argocd">集成Argo CD</a>
+                </li>
+                <li>
+                    <a class="navlink" href="/zh/scenarios/manage-cluster-with-multiple-hubs">使用多个hub管理同一集群</a>
                 </li>
                 <li>
                     <a class="navlink" href="/zh/scenarios/pushing-kube-api-requests">向托管集群推送Kube API请求</a>
@@ -386,7 +389,7 @@ export HUB_CLUSTER_NAME<span style="color:#f92672">=</span><span style="color:#e
 export HUB_KUBECONFIG<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hub-kubeconfig&#34;</span>
 
 <span style="color:#75715e"># Apply the CRDs</span>
-export GIT_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/open-cluster-management-io/governance-policy-propagator/v0.11.0/deploy&#34;</span>
+export GIT_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/open-cluster-management-io/governance-policy-propagator/v0.12.0/deploy&#34;</span>
 kubectl apply -f <span style="color:#e6db74">${</span>GIT_PATH<span style="color:#e6db74">}</span>/crds/policy.open-cluster-management.io_policies.yaml
 kubectl apply -f <span style="color:#e6db74">${</span>GIT_PATH<span style="color:#e6db74">}</span>/crds/policy.open-cluster-management.io_placementbindings.yaml
 kubectl apply -f <span style="color:#e6db74">${</span>GIT_PATH<span style="color:#e6db74">}</span>/crds/policy.open-cluster-management.io_policyautomations.yaml
@@ -460,7 +463,7 @@ kubectl -n <span style="color:#e6db74">${</span>MANAGED_NAMESPACE<span style="co
 
 <span style="color:#75715e"># Apply the policy CRD</span>
 export GIT_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://raw.githubusercontent.com/open-cluster-management-io&#34;</span>
-kubectl apply -f <span style="color:#e6db74">${</span>GIT_PATH<span style="color:#e6db74">}</span>/governance-policy-propagator/v0.11.0/deploy/crds/policy.open-cluster-management.io_policies.yaml
+kubectl apply -f <span style="color:#e6db74">${</span>GIT_PATH<span style="color:#e6db74">}</span>/governance-policy-propagator/v0.12.0/deploy/crds/policy.open-cluster-management.io_policies.yaml
 
 <span style="color:#75715e"># Set the managed cluster name and create the namespace</span>
 export MANAGED_CLUSTER_NAME<span style="color:#f92672">=</span>&lt;your managed cluster name&gt;  <span style="color:#75715e"># export MANAGED_CLUSTER_NAME=cluster1</span>
@@ -468,7 +471,7 @@ kubectl create ns <span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span
 
 <span style="color:#75715e"># Deploy the synchronization component</span>
 export COMPONENT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;governance-policy-framework-addon&#34;</span>
-kubectl apply -f <span style="color:#e6db74">${</span>GIT_PATH<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>COMPONENT<span style="color:#e6db74">}</span>/v0.11.0/deploy/operator.yaml -n <span style="color:#e6db74">${</span>MANAGED_NAMESPACE<span style="color:#e6db74">}</span>
+kubectl apply -f <span style="color:#e6db74">${</span>GIT_PATH<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>COMPONENT<span style="color:#e6db74">}</span>/v0.12.0/deploy/operator.yaml -n <span style="color:#e6db74">${</span>MANAGED_NAMESPACE<span style="color:#e6db74">}</span>
 kubectl patch deployment governance-policy-framework-addon -n <span style="color:#e6db74">${</span>MANAGED_NAMESPACE<span style="color:#e6db74">}</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  -p <span style="color:#e6db74">&#34;{\&#34;spec\&#34;:{\&#34;template\&#34;:{\&#34;spec\&#34;:{\&#34;containers\&#34;:[{\&#34;name\&#34;:\&#34;governance-policy-framework-addon\&#34;,\&#34;args\&#34;:[\&#34;--hub-cluster-configfile=/var/run/klusterlet/kubeconfig\&#34;, \&#34;--cluster-namespace=</span><span style="color:#e6db74">${</span>MANAGED_CLUSTER_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;, \&#34;--enable-lease=true\&#34;, \&#34;--log-level=2\&#34;, \&#34;--disable-spec-sync=</span><span style="color:#e6db74">${</span>DEPLOY_ON_HUB<span style="color:#e6db74">}</span><span style="color:#e6db74">\&#34;]}]}}}}&#34;</span>
 </code></pre></div></li>

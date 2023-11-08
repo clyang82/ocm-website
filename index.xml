@@ -15,9 +15,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://open-cluster-management.io/community/releases/</guid>
-      <description>Open Cluster Management has approximately a three to four month release cycle. The current release is v0.11.0. Continue reading to view upcoming releases:
-0.11.0, 1, June 2023 The Open Cluster Management team is proud to announce the release of OCM v0.11.0! There are a bunch of new features added into this release
- Addon install strategy and rolling upgrade: a new component addon-manager is introduced to handle the addon installation and upgrade.</description>
+      <description>Open Cluster Management has approximately a three to four month release cycle. The current release is v0.12.0. Continue reading to view upcoming releases:
+0.12.0, 11 Oct. 2023 The Open Cluster Management team is proud to announce the release of OCM v0.12.0! We have made architecture refactors and added several features in this release:
+ Component consolidation: we made a big code refactor to merge code in registration, work, placement and registration-operator into the ocm repo.</description>
     </item>
     
     <item>
@@ -91,6 +91,16 @@ In this article, we want to show you how to integrate Argo CD with OCM and deplo
     </item>
     
     <item>
+      <title>Manage a cluster with multiple hubs</title>
+      <link>https://open-cluster-management.io/scenarios/manage-cluster-with-multiple-hubs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://open-cluster-management.io/scenarios/manage-cluster-with-multiple-hubs/</guid>
+      <description>Normally an Open Cluster Management (OCM) hub manages multiple managed clusters and a cluster only registers to one OCM hub. While there might be some user scenarios, where a single cluster may want to join more than one OCM hub as a managed cluster, including:
+ In an organization, each department may setup an OCM hub to manage clusters owned by this department, and all clusters are managed by a central OCM hub owned by IT department to enforce organization wide security policies.</description>
+    </item>
+    
+    <item>
       <title>Monitoring OCM using Prometheus-Operator</title>
       <link>https://open-cluster-management.io/getting-started/administration/monitoring/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -155,7 +165,7 @@ Usage ClusterCaim is used to specify additional properties of the managed cluste
       
       <guid>https://open-cluster-management.io/concepts/managedclusterset/</guid>
       <description>What is ManagedClusterSet? Operates ManagedClusterSet using clusteradm  Creating a ManagedClusterSet Adding a ManagedCluster to a ManagedClusterSet Binding the ManagedClusterSet to a workspace namespace   A glance at the &amp;ldquo;ManagedClusterSet&amp;rdquo; API  Clusterset RBAC permission control  Adding member cluster to a clusterset Binding a clusterset to a namespace     Default ManagedClusterSet Global ManagedClusterSet     API-CHANGE NOTE:
-The ManagedClusterSet and ManagedClusterSetBinding API v1alpha1 version will no longer be served in OCM v0.</description>
+The ManagedClusterSet and ManagedClusterSetBinding API v1beta1 version will no longer be served in OCM v0.</description>
     </item>
     
     <item>
@@ -164,7 +174,16 @@ The ManagedClusterSet and ManagedClusterSetBinding API v1alpha1 version will no 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://open-cluster-management.io/concepts/manifestwork/</guid>
-      <description>What is ManifestWork Status tracking  Fine-grained field values tracking   Garbage collection  Delete options   Resource Race and Adoption   Permission setting for work agent  Treating defaulting/immutable fields in API Dynamic identity authorization     What is ManifestWork ManifestWork is used to define a group of Kubernetes resources on the hub to be applied to the managed cluster. In the open-cluster-management project, a ManifestWork resource must be created in the cluster namespace.</description>
+      <description>What is ManifestWork Status tracking  Fine-grained field values tracking   Garbage collection  Delete options   Resource Race and Adoption Permission setting for work agent Treating defaulting/immutable fields in API Dynamic identity authorization     What is ManifestWork ManifestWork is used to define a group of Kubernetes resources on the hub to be applied to the managed cluster. In the open-cluster-management project, a ManifestWork resource must be created in the cluster namespace.</description>
+    </item>
+    
+    <item>
+      <title>Multicluster Control Plane</title>
+      <link>https://open-cluster-management.io/concepts/multicluster-controlplane/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://open-cluster-management.io/concepts/multicluster-controlplane/</guid>
+      <description>What is Multicluster Control Plane Why use Multicluster Control Plane How to use Multicluster Control Plane  Start the standalone multicluster control plane Install via clusteradm  Install clusteradm CLI tool Install multicluster control plane   Join a cluster to the multicluster control plane Verify the cluster join       What is Multicluster Control Plane The multicluster control plane is a lightweight Open Cluster Manager (OCM) control plane that is easy to install and has a small footprint.</description>
     </item>
     
     <item>
@@ -174,7 +193,7 @@ The ManagedClusterSet and ManagedClusterSetBinding API v1alpha1 version will no 
       
       <guid>https://open-cluster-management.io/getting-started/installation/register-a-cluster/</guid>
       <description>After the cluster manager is installed on the hub cluster, you need to install the klusterlet agent on another cluster so that it can be registered and managed by the hub cluster.
-   Prerequisite Install clusteradm CLI tool Bootstrap a klusterlet Accept the join request and verify Apply a Manifestwork  Troubleshooting   Detach the cluster from hub     Prerequisite  The managed clusters should be v1.</description>
+   Prerequisite Install clusteradm CLI tool Bootstrap a klusterlet  Bootstrap a klusterlet in hosted mode(Optional) Bootstrap a klusterlet in singleton mode   Accept the join request and verify Apply a Manifestwork  Troubleshooting   Detach the cluster from hub     Prerequisite  The managed clusters should be v1.</description>
     </item>
     
     <item>
@@ -194,7 +213,7 @@ apiVersion: work.open-cluster-management.io/v1alpha1 kind: ManifestWorkReplicaSe
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://open-cluster-management.io/concepts/placement/</guid>
-      <description>Overall Select clusters in ManagedClusterSet  Predicates  Label/Claim selection Taints/Tolerations   Prioritizers  Score-based prioritizer Extensible scheduling     PlacementDecisions Troubleshooting  Check the Placement conditions Check the Placement events Debug   Future work     API-CHANGE NOTE:
+      <description>Overall Select clusters in ManagedClusterSet  Predicates  Label/Claim selection Taints/Tolerations   Prioritizers  Score-based prioritizer Extensible scheduling     PlacementDecisions  Decision strategy   Troubleshooting  Check the Placement conditions Check the Placement events Debug   Future work     API-CHANGE NOTE:
 The Placement and PlacementDecision API v1alpha1 version will no longer be served in OCM v0.9.0.
  Migrate manifests and API clients to use the Placement and PlacementDecision API v1beta1 version, available since OCM v0.</description>
     </item>
